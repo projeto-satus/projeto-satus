@@ -1,9 +1,10 @@
-"use client";
-import { styled } from "styled-components";
+export function Logo () {
+    return (
+        <div 
+            className="w-[150px] h-[50px] bg-contain"
+            style={{backgroundImage: `url(/logo-satus.png)`}}
+        >
 
-export const Logo = styled.div`
-    background-image: url("/logo-satus.png");
-    width: 150px;
-    height: 50px;
-    background-size: contain;
-`;
+        </div>
+    )
+}

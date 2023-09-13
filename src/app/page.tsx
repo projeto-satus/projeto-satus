@@ -1,9 +1,13 @@
-import { Logo } from '@/components/layout/Logo'
-import Image from 'next/image'
-
+import { HomeBanner } from "@/components/HomeBanner"
+import { TeamInfo } from "@/components/TeamInfo"
+import { BasePage } from "@/components/layout/BasePage"
+import { Logo } from "@/components/layout/Logo"
 
 export default function Home() {
   return (
-    <Logo />
+      <BasePage >
+        <HomeBanner />
+        <TeamInfo />
+      </BasePage>
   )
 }
