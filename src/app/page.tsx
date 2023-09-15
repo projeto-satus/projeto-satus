@@ -5,7 +5,7 @@ import { Logo } from "@/components/layout/Logo"
 
 export default function Home() {
   return (
-      <BasePage >
+      <BasePage>
         <HomeBanner />
         <TeamInfo />
       </BasePage>
