@@ -3,10 +3,10 @@ import HomeBannerImage from "./homebanner.jpg";
 
 export function HomeBanner() {
   return (
-    <div className="flex m-6">
-      <div className="flex-1 p-8">
-        <h1 className="mb-4 tracking-widest">Projeto Satus</h1>
-        <p className="text-slate-600 tracking-widest mr-10">
+    <div className="flex flex-col lg:text-lg text-base lg:flex-row m-6 items-center pb-6">
+      <div className="flex-1 lg:pr-8 pb-8 text-justify lg:text-left">
+        <h1 className="md:mb-6 mb-4 tracking-wide leading-snug xl:text-6xl xl:mb-10">Projeto Satus</h1>
+        <p className="text-slate-600 tracking-widest">
           Somos a equipe Satus, desenvolvedores de software apaixonados e
           experientes. Com proficiência em Python, Java, JavaScript e expertise
           em desenvolvimento web e móvel, transformamos ideias em soluções
