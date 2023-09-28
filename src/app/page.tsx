@@ -1,6 +1,6 @@
-import { HomeBanner } from "@/components/HomeBanner";
-import { TeamInfo } from "@/components/TeamInfo";
-import { TeamMember } from "@/components/TeamInfo/TeamMember";
+import { HomeBanner } from "@/components/home/HomeBanner";
+import { TeamInfo } from "@/components/home/TeamInfo";
+import { TeamMember } from "@/components/home/TeamInfo/TeamMember";
 import { BasePage } from "@/components/layout/BasePage";
 import { Logo } from "@/components/layout/Logo";
 
