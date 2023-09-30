@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 
 export function useComponentDidMount(func: () => void) {
   useEffect(() => {
-    console.log('[useComponentDidMount] Component mounted!');
     func();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

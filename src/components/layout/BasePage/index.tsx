@@ -1,8 +1,14 @@
+import React from "react";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { InitFlowbite } from "./InitFlowbite";
 
-export function BasePage(props: any) {
+interface Props extends React.PropsWithChildren<unknown> {
+  home?: boolean;
+  dashboard?: boolean;
+}
+
+export function BasePage(props: Props) {
   return (
     <>
       <div
@@ -31,7 +37,7 @@ export function BasePage(props: any) {
         }}
       >&nbsp;</div>
       <InitFlowbite />
-      <Header />
+      <Header home={props.home} dashboard={props.dashboard} />
       <div
         className="pt-20"
       >{props.children}</div>

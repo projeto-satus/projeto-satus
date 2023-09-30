@@ -3,12 +3,13 @@
 import { comparePassword } from "@/lib/db/password-crypto";
 import { prismaClient } from "@/lib/db/prisma";
 import { Prisma } from "@prisma/client";
+import { cookies } from 'next/headers';
 
 export type AuthenticationResponse = AuthenticationResponseSuccess | AuthenticationResponseFailure;
 
 export interface AuthenticationResponseSuccess {
   success: true;
-  member: Prisma.MemberCreateInput & { id: number };
+  member: Omit<Prisma.MemberCreateInput, 'password'> & { id: number };
 }
 
 export interface AuthenticationResponseFailure {
@@ -17,30 +18,40 @@ export interface AuthenticationResponseFailure {
 }
 
 export async function signin(username: string, password: string): Promise<AuthenticationResponse> {
-  const response = await prismaClient.member.findUnique({
+  const member = await prismaClient.member.findUnique({
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      username: true,
+      role: true,
+      password: true,
+    },
     where: {
       username: username,
     },
   });
   
-  if (!response) {
+  if (!member) {
     return {
       success: false,
       errorMessage: "Usuário não encontrado",
     };
   }
 
-  const passwordHash = response.password || '';
-
-  if (!comparePassword(password, passwordHash)) {
+  if (!comparePassword(password, member.password || '')) {
     return {
       success: false,
       errorMessage: "Senha incorreta",
     };
   }
 
+  const { password: _, ...memberWithoutPassword } = member;
+
+  cookies().set('member', JSON.stringify(memberWithoutPassword));
+
   return {
     success: true,
-    member: response,
+    member: memberWithoutPassword,
   };
 }
