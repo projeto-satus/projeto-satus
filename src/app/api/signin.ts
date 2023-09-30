@@ -1,7 +1,7 @@
 "use server";
 
-import { comparePassword } from "@/db/password-crypto";
-import { prismaClient } from "@/db/prisma";
+import { comparePassword } from "@/lib/db/password-crypto";
+import { prismaClient } from "@/lib/db/prisma";
 import { Prisma } from "@prisma/client";
 
 export type AuthenticationResponse = AuthenticationResponseSuccess | AuthenticationResponseFailure;

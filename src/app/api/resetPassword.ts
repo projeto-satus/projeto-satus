@@ -1,7 +1,7 @@
 "use server";
 
-import { comparePassword, encryptPassword } from "@/db/password-crypto";
-import { prismaClient } from "@/db/prisma";
+import { comparePassword, encryptPassword } from "@/lib/db/password-crypto";
+import { prismaClient } from "@/lib/db/prisma";
 
 export type ResetPasswordResponse = ResetPasswordSuccess | ResetPasswordFailure;
 
